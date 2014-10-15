@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+function ajaxCall(){
+	var movieModel ={};
+	movieModel.movieName = 'Avengers';
+	movieModel.message = 'Hello World';
+	
+	try{
+		 $.ajax({
+	         type: "POST",
+	         url: "http://127.0.0.1:8888/movie/movieName",
+	        // url:"/movie/movieNames",
+	         data: JSON.stringify(movieModel),
+	         contentType: "application/json",
+	         dataType: "json",
+	         crossDomain: true,
+	         success: function (msg) {
+	        	 alert("success - "+JSON.stringify(msg));
+		     },
+	         error: function (request, status, error) {
+	        	 alert("error - "+ request);
+	        	 alert("status - "+ status);
+	        	 alert("error - "+error);
+		     }
+	 	}); 
+	} catch (e) {
+		alert("catch - "+e);
+	}   
+}
+</script>
+<body>
+	<h1>GAE + Spring 3 MVC REST example</h1>
+	<input type="submit" onclick="ajaxCall();">
+</body>
+</html>
