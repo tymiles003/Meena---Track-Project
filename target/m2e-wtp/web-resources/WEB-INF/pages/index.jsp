@@ -1,40 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<script type="text/javascript">
+<html ng-app>
+	<head>
+		<title>Hello AngularJS</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+		<script>
+    	function Hello($scope, $http) {
+		    $http.get('http://localhost:8080/service/getdriverdetails').
+		        success(function(data) {
+		            $scope.driver = data;
+		        });
+		}
+    	</script>
+	</head>
 
-function ajaxCall(){
-	var movieModel ={};
-	movieModel.movieName = 'Avengers';
-	movieModel.message = 'Hello World';
-	
-	try{
-		 $.ajax({
-	         type: "POST",
-	         url: "http://127.0.0.1:8888/movie/movieName",
-	        // url:"/movie/movieNames",
-	         data: JSON.stringify(movieModel),
-	         contentType: "application/json",
-	         dataType: "json",
-	         crossDomain: true,
-	         success: function (msg) {
-	        	 alert("success - "+JSON.stringify(msg));
-		     },
-	         error: function (request, status, error) {
-	        	 alert("error - "+ request);
-	        	 alert("status - "+ status);
-	        	 alert("error - "+error);
-		     }
-	 	}); 
-	} catch (e) {
-		alert("catch - "+e);
-	}   
-}
-</script>
-<body>
-	<h1>GAE + Spring 3 MVC REST example</h1>
-	<input type="submit" onclick="ajaxCall();">
-</body>
+	<body>
+		<div ng-controller="Hello">
+			<p>The Driver First Name is {{driver.driverFirstName}}</p>
+			<p>The Driver Last Name is {{driver.driverLastName}}</p>
+		</div>
+	</body>
 </html>

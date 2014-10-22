@@ -5,6 +5,7 @@
     <threadsafe>true</threadsafe>
     
     <system-properties>
-        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/> 
+       <!--  <property name="java.util.logging.config.file" value="WEB-INF/log4j.properties"/> --> 
     </system-properties>
 </appengine-web-app>

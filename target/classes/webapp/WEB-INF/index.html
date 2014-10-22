@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -34,4 +34,28 @@ function ajaxCall(){
 	<h1>GAE + Spring 3 MVC REST example</h1>
 	<input type="submit" onclick="ajaxCall();">
 </body>
+</html> -->
+
+<!doctype html>
+<html ng-app>
+	<head>
+		<title>Hello AngularJS</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+		<script>
+    	function Hello($scope, $http) {
+		    $http.get('http://localhost:8080/service/getdriverdetails').
+		        success(function(data) {
+		            $scope.driver = data;
+		        });
+		}
+    	</script>
+	</head>
+
+	<body>
+		<div ng-controller="Hello">
+			<p>The Driver First Name is {{driver.driverFirstName}}</p>
+			<p>The Driver Last Name is {{driver.driverLastName}}</p>
+		</div>
+	</body>
 </html>

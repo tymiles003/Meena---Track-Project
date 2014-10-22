@@ -23,6 +23,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.framework.version>4.0.0.RELEASE</spring.framework.version>
         <jackson.version>1.9.10</jackson.version>
+        <spring-security-oauth2.version>1.0.0.RELEASE</spring-security-oauth2.version>
+        <spring.security.version>3.1.0.RELEASE</spring.security.version>
     </properties>
 
   <!--   <prerequisites>
@@ -83,6 +85,32 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.framework.version}</version>
+		</dependency>
+		<!-- Spring Security dependencies -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-acl</artifactId>
+		    <version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>${spring-security-oauth2.version}</version>
 		</dependency>
 		<!-- Spring testing dependencies -->
 		<!-- <dependency>
@@ -193,6 +221,12 @@
             <artifactId>javax.inject</artifactId>
             <version>1</version>
         </dependency>
+        <!-- MySQLDriver -->
+        <dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.18</version>
+		</dependency>
     </dependencies>
 
     <build>
